@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+ 
+int main() {
+	int n,i=0,j,l,count=1,m=0;
+	vector<char> v;
+	cin>>n;
+	j=n-1;
+	int a[n];
+	for(i=0;i<n;i++)
+	cin>>a[i];
+	i=0;
+	if(a[0]<a[n-1])
+	{ v.push_back('L'); l=a[0]; i++;}
+	else
+	{v.push_back('R'); l=a[n-1]; j--;}
+	if(n>1)
+	{
+	while(i<n && j>=0)
+	{ 
+	  if(a[i]>l && a[j]>l)
+	  {
+	  	if(a[i]<a[j])
+	  	{ v.push_back('L');  l=a[i]; i++; count++;}
+	  	else
+	  	{ v.push_back('R'); l=a[j]; j--; count++;}
+ 
+	  }
+	  else if(a[i]>l)
+	  { v.push_back('L'); l=a[i]; i++; count++;}
+	  else if(a[j]>l)
+	  { v.push_back('R');  l=a[j]; j--;  count++;}
+	  else 
+	  break;
+	  m++;
+	}
+	}
+	cout<<count<<endl;
+	for(i=0;i<v.size();i++)
+	cout<<v[i];
+	return 0;
+}
