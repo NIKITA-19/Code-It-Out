@@ -1,0 +1,25 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+ 
+int main() {
+	long long int n,k,ans,m;
+	cin>>n>>k;
+	if(n%2==0)
+	{
+	if(k<=ceil((long double)n/2))
+	ans=2*k-1;
+	else
+	ans=2*k-n;
+	}
+	else
+	{
+    if(k<=ceil((long double)n/2))
+	ans=2*k-1;
+	else
+	ans=2*k-n-1;
+	
+	}
+	cout<<ans;
+	return 0;
+}
