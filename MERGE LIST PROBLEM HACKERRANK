@@ -1,0 +1,38 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+long long int ncr(long long int l,long long int r)
+{
+    long long int p=1,k=1,g;
+    if(l-r<r)
+    r=l-r;
+    if(r)
+    {
+        while(r)
+        {
+            p=p*l;
+            k=k*r;
+            g=__gcd(p,k);
+            p=p/g;
+            p=p%1000000007;
+            k=k/g;
+            l--;
+            r--;
+        }
+    }
+    else
+    p=1;
+    return p;
+}
+int main() {
+    int t,n,m,ans;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n>>m;
+        ans=(ncr(m+n,m))%1000000007;
+        cout<<ans<<endl;
+    }
+    
+    return 0;
+}
