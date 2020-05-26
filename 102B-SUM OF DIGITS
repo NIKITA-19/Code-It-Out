@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int sum (string s,int m)
+{
+	int i,a=0;
+	for(i=0;i<m;i++)
+	a+=s[i]-48;
+	return a;
+	
+}
+int str(int n,string &s)
+{
+    int i=0;
+	while(n)
+	{
+		s[i]=(n%10)+48;
+		n/=10;
+		i++;
+	}
+	return i;
+}
+
+int main() {
+	int f,m=0,t=0;
+	string s;
+	cin>>s;
+	if(s.size()==1)
+	{
+		cout<<"0"; return 0;
+	}
+	f=sum(s,s.size());
+	t=1;
+	while(f/10!=0)
+	{
+		m=str(f,s);
+		f=sum(s,m);
+		t++;
+	}
+	cout<<t;
+
+	
+	return 0;
+}
